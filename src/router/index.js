@@ -1,22 +1,40 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 
-const routes= [
+const routes = [
     {
         path: '/',
         name: 'Index',
         component: () => import('../views/index.vue')
     },
     {
-        path:"/leftTop",
-        component: () => import('@/components/leftTop/LeftTop.vue')
-    },
-    {
-        path:'/rightTop',
-        component: () => import('@/components/rightTop/RightTop.vue')
-    },
-    {
-        path:'/bottomLeft',
-        component: () => import('@/components/bottomLeft/BottomLeft.vue')
+        path: '/taskAllocation',
+        component: () => import('@/components/TaskAllocation.vue'),
+        redirect: '/input',
+        children: [
+            {
+                path:'/allocation',
+                component: () => import('@/views/Allocation.vue'),
+            },
+            {
+                path:'/input',
+                component: () => import('@/views/Input.vue'),
+            },
+            {
+                path:'/coalition',
+                component: () => import('@/views/Coalition.vue'),
+                redirect: '/coalition/table',
+                children: [
+                    {
+                        path:'table',
+                        component: () => import('@/views/coalition/Table.vue'),
+                    },
+                    {
+                        path:'map',
+                        component: () => import('@/views/coalition/Map.vue'),
+                    }
+                    ]
+            }
+        ]
     }
 ]
 

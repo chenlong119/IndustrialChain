@@ -11,12 +11,15 @@ import router from "@/router";
 import '@/assets/icon/iconfont.css'
 import axios from "axios";
 import * as echarts from 'echarts';
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
-axios.defaults.baseURL = 'http://localhost:8888/api'
 const app = createApp(App);
 app.config.globalProperties.$axios = axios
 app.config.globalProperties.$echarts = echarts
 
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+}
 app.use(router)
 app.use(DataVVue3)
 
