@@ -15,13 +15,13 @@
       <!-- 4个主要的数据 -->
       <div class="flex flex-wrap main flex-grow justify-around">
         <div
-            class="mt-2 bottom mr-2 w-1/3"
+            class="mt-2 bottom  w-2/4"
             v-for="(item, index) in numberData"
             :key="index"
         >
           <div class="flex">
             <i class="iconfont text-blue-600" :class="[iconFont[index]]" />
-            <dv-digital-flop class="ml-2 dv-digital-flop" :config="item.config" />
+            <dv-digital-flop class="dv-digital-flop" :config="item.config" />
           </div>
           <p class="text">
             <span> {{ item.text }} </span>
@@ -103,7 +103,7 @@ onUnmounted(() => {
 <style scoped lang="less">
 .dv-digital-flop {
   height: 30px;
-  width: 120px;
+  width: 80px;
 }
 i {
   font-size: 20px;

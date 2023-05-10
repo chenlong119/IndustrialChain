@@ -1,7 +1,11 @@
 <template>
     <el-container>
         <el-aside width="200px">
-            <el-menu router default-active="/input">
+            <el-menu router default-active="/dashboard">
+                <el-menu-item index="/dashboard">
+                    <el-icon><PieChart /></el-icon>
+                    <span>项目首页</span>
+                </el-menu-item>
                 <el-menu-item index="/input">
                     <el-icon><Edit /></el-icon>
                     <span>任务输入</span>

@@ -3,17 +3,16 @@ import {createRouter, createWebHashHistory} from 'vue-router'
 const routes = [
     {
         path: '/',
-        name: 'Index',
-        component: () => import('../views/index.vue')
-    },
-    {
-        path: '/taskAllocation',
         component: () => import('@/components/TaskAllocation.vue'),
-        redirect: '/input',
+        redirect: '/dashboard',
         children: [
             {
                 path:'/allocation',
                 component: () => import('@/views/Allocation.vue'),
+            },
+            {
+                path:'/dashboard',
+                component: () => import('@/views/DashBoard.vue'),
             },
             {
                 path:'/input',
