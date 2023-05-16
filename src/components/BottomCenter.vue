@@ -390,13 +390,9 @@ option = {
             }
         ],
         left: 10,
-        // itemStyle:{color: 'inherit'},
-        // selector: [
-        //   {
-        //     type: "inverse",
-        //     title: "反选",
-        //   },
-        // ],
+       textStyle: {
+              color: "#fff",
+          },
     },
 
     animationDuration: 1000,

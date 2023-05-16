@@ -6,7 +6,7 @@
             </dv-border-box-12>
         </el-col>
         <el-col :span="12">
-            <TopCenter/>
+            <RelationGraph/>
         </el-col>
         <el-col :span="6">
             <dv-border-box-12 class="p-3 box-border">
@@ -17,7 +17,7 @@
     <el-row :gutter="10" class="h-2/5 mt-2">
         <el-col :span="8">
             <dv-border-box-8 class="p-3 box-border">
-                <BottomLeft/>
+                <IncomeGraph></IncomeGraph>
             </dv-border-box-8>
         </el-col>
         <el-col :span="8">
@@ -36,11 +36,10 @@
 <script setup>
 import LeftTop from "@/components/leftTop/LeftTop.vue";
 import RightTop from "@/components/rightTop/RightTop.vue";
-import BottomLeft from "@/components/bottomLeft/BottomLeft.vue";
 import BottomCenter from "./BottomCenter.vue";
 import BottomRight from "./BottomRight.vue";
-import TopCenter from "./TopCenter.vue";
-import {Top} from "@element-plus/icons-vue";
+import RelationGraph from "@/components/multilayer/RelationGraph.vue";
+import IncomeGraph from "@/components/multilayer/IncomeGraph.vue";
 </script>
 
 <style scoped>
