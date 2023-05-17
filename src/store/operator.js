@@ -28,10 +28,14 @@ export const useOperatorStore = defineStore('operator',()=>{
     const modifyCurrentOperator = (operator) => {
         currentOperatorRef.value = operator;
     }
+    const updateOperatorList = (index) => {
+        operatorListData[index].name=currentOperatorRef.value;
+    }
     return{
         operatorListData,
         addOperator,
         currentOperatorRef,
-        modifyCurrentOperator
+        modifyCurrentOperator,
+        updateOperatorList
     }
 })

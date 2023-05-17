@@ -1,5 +1,6 @@
 <script setup>
-import {reactive, ref} from "vue";
+import { ref} from "vue";
+import TaskInputForm from "@/views/scheduling/components/TaskInputForm.vue";
 import OperatorDialogBody from "@/views/scheduling/components/OperatorDialogBody.vue";
 import{useOperatorStore} from "@/store/operator";
 
@@ -8,9 +9,21 @@ const currentPageOperatorList = ref(1);
 const PageSize = 5;
 const showOperatorDialog = ref(false);
 const currentOperator = ref('');
-const changeOperator = row => {
+const currentOperator2 = ref('');
+const modifyIndex=ref(0);
+const modifyOperator = (row,index)=> {
     currentOperator.value = row.name;
     showOperatorDialog.value = true;
+    modifyIndex.value=index;
+};
+const dialogTableVisible3 = ref(false);
+const gotoDetail = (index)=> {
+    dialogTableVisible3.value = true;
+    currentOperator2.value=operatorStore.operatorListData[index].name;
+};
+const submitChange = (index) => {
+    showOperatorDialog.value = false;
+    operatorStore.updateOperatorList(index);
 };
 
 </script>
@@ -24,7 +37,20 @@ const changeOperator = row => {
         <template #footer>
             <span class="mr-1">
               <el-button @click="dialogVisible = false">取消</el-button>
-              <el-button type="primary" @click="showOperatorDialog = false">
+              <el-button type="primary" @click="submitChange(modifyIndex)">
+                确定
+              </el-button>
+            </span>
+        </template>
+    </el-dialog>
+    <el-dialog title="任务信息查看"
+               v-model="dialogTableVisible3"
+               width="30%">
+        <TaskInputForm :current="currentOperator2"></TaskInputForm>
+        <template #footer>
+            <span class="mr-1">
+              <el-button @click="dialogTableVisible3 = false">取消</el-button>
+              <el-button type="primary" @click="dialogTableVisible3 = false">
                 确定
               </el-button>
             </span>
@@ -43,7 +69,7 @@ const changeOperator = row => {
         <el-table-column label="当前任务编号" min-width="60" prop="taskId">
             <template #default="scope">
                 <el-link type="primary">
-                    <div @click="gotoDetail(scope.row)">
+                    <div @click="gotoDetail(scope.$index)">
                         {{ scope.row.taskId }}
                     </div>
                 </el-link>
@@ -52,16 +78,15 @@ const changeOperator = row => {
 
         <el-table-column label="操作员设置" min-width="45">
             <template #default="scope">
-                <el-button @click="changeOperator(scope.row)" type="text">操作员修改</el-button>
+                <el-button @click="modifyOperator(scope.row,scope.$index)" type="text">操作员修改</el-button>
             </template>
         </el-table-column>
 
     </el-table>
 
     <el-pagination
-            :page-size="PageSize"
             layout="total, sizes, prev, pager, next, jumper"
-            :total="operatorListData.length"
+            :total="operatorStore.operatorListData.length"
             style="margin-top: 0.5rem">
     </el-pagination>
 </template>

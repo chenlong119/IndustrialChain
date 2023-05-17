@@ -35,15 +35,15 @@ const routes = [
             },
             {
                 path:'/scheduling',
-                component: () => import('@/views/Scheduling.vue'),
+                component: () => import('@/views/scheduling/TaskScheduling.vue'),
                 children: [
                     {
-                        path:'table',
+                        path:'',
                         name:'table',
                         component: () => import('@/views/scheduling/components/Table.vue'),
                     },
                     {
-                        path:'',
+                        path:'flowchart',
                         name:'flowchart',
                         component: () => import('@/views/scheduling/components/FlowChart.vue'),
                     },

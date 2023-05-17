@@ -14,6 +14,10 @@
                     <el-icon><Tickets /></el-icon>
                     <span>任务分配</span>
                 </el-menu-item>
+                <el-menu-item index="/scheduling">
+                    <el-icon><ScaleToOriginal /></el-icon>
+                    <span>任务调度</span>
+                </el-menu-item>
             </el-menu>
         </el-aside>
         <el-main>

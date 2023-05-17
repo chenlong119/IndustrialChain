@@ -31,15 +31,20 @@ const addOperator = () => {
     </el-dialog>
 <div class="header">
     <el-button-group>
-        <el-button @click="$router.push({name:'table'})">表格视图</el-button>
-        <el-button @click="$router.push({name:'flowchart'})">流程图视图</el-button>
-        <el-button @click="$router.push({name:'operator'})">操作员列表</el-button>
-        <el-button @click="changeOperator">新增操作员</el-button>
+        <el-button @click="$router.push({name:'table'})" type="primary">表格视图</el-button>
+        <el-button @click="$router.push({name:'flowchart'})" type="primary">流程图视图</el-button>
+        <el-button @click="$router.push({name:'operator'})" type="primary">操作员列表</el-button>
+        <el-button @click="changeOperator" type="primary">新增操作员</el-button>
     </el-button-group>
 </div>
   <router-view></router-view>
 </template>
 
 <style scoped lang="less">
-
+.header
+{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 </style>

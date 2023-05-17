@@ -10,12 +10,13 @@ const props=defineProps({
     },
 })
 operatorStore.modifyCurrentOperator(props.currentOperator);
+const userName = ref('');
 </script>
 
 <template>
     <el-form label-width="180px">
         <el-form-item label="用户名称">
-            <el-select>
+            <el-select v-model="userName">
                 <el-option label="admin" value="1"></el-option>
             </el-select>
         </el-form-item>
