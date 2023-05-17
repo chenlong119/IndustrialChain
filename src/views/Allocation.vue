@@ -63,9 +63,11 @@ const taskLinkageInfo = ref(null);
 let taskFinishInfo=ref(null);
 let taskInfoIntance;
 var year = [
-    2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008,
-    2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000, 1999, 1998, 1997, 1996, 1995,
-    1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987, 1986, 1985, 1984, 1983, 1982,
+    //39到1
+    39,38,37,36,35,34,33,32,31,30,
+    29,28,27,26,25,24,23,22,21,20,
+    19,18,17,16,15,14,13,12,11,10,
+    9,8,7,6,5,4,3,2,1
 ];
 var data = [
     [431, 550, 878, 989, 351, 391, 508, 118],
@@ -128,14 +130,14 @@ var option1 = {
     tooltip: {formatter: "{c}%"},
     yAxis: {
         data: [
-            "任务1",
-            "任务2",
-            "任务3",
-            "任务4",
-            "任务5",
-            "任务6",
-            "任务7",
-            "任务8",
+            "销售汽车玻璃",
+            "生产汽车车身",
+            "生产汽车轮胎",
+            "销售汽车玻璃",
+            "销售电动汽车",
+            "电动汽车生产",
+            "汽车锂电池生产",
+            "购买汽车玻璃",
         ],
         inverse: true,
         // max: 5,
@@ -455,7 +457,7 @@ var option3 = {
 //表格数据，关于任务分配情况滴
 const tableData = [
     {
-        tname: '任务1',
+        tname: '生产汽车车身',
         ttype: '生产任务',
         duration: 200,
         tarrival: '2021-4-5',
@@ -463,7 +465,7 @@ const tableData = [
         cid: '0',
         cname: '0号联盟'
     },{
-        tname: '任务2',
+        tname: '汽车锂电池生产',
         ttype: '销售任务',
         duration: 150,
         tarrival: '2021-4-5',
@@ -471,7 +473,7 @@ const tableData = [
         cid: '2',
         cname: '2号联盟'
     },{
-        tname: '任务3',
+        tname: '购买汽车玻璃',
         ttype: '生产任务',
         duration: 100,
         tarrival: '2021-4-5',
@@ -479,7 +481,7 @@ const tableData = [
         cid: '0',
         cname: '0号联盟'
     },{
-        tname: '任务4',
+        tname: '电动汽车生产',
         ttype: '生产任务',
         duration: 100,
         tarrival: '2021-4-5',
@@ -487,7 +489,7 @@ const tableData = [
         cid: '1',
         cname: '1号联盟'
     },{
-        tname: '任务5',
+        tname: '销售汽车玻璃',
         ttype: '生产任务',
         duration: 160,
         tarrival: '2021-4-5',
@@ -495,7 +497,7 @@ const tableData = [
         cid: '0',
         cname: '0号联盟'
     },{
-        tname: '任务6',
+        tname: '生产汽车轮胎',
         ttype: '采购任务',
         duration: 100,
         tarrival: '2021-4-5',
@@ -503,7 +505,7 @@ const tableData = [
         cid: '3',
         cname: '3号联盟'
     },{
-        tname: '任务7',
+        tname: '销售电动汽车',
         ttype: '生产任务',
         duration: 180,
         tarrival: '2021-4-5',
@@ -511,7 +513,7 @@ const tableData = [
         cid: '0',
         cname: '0号联盟'
     },{
-        tname: '任务8',
+        tname: '汽车锂电池生产',
         ttype: '采购任务',
         duration: 100,
         tarrival: '2021-4-5',

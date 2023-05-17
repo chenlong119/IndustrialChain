@@ -32,6 +32,27 @@ const routes = [
                         component: () => import('@/views/coalition/Map.vue'),
                     }
                     ]
+            },
+            {
+                path:'/scheduling',
+                component: () => import('@/views/Scheduling.vue'),
+                children: [
+                    {
+                        path:'table',
+                        name:'table',
+                        component: () => import('@/views/scheduling/components/Table.vue'),
+                    },
+                    {
+                        path:'',
+                        name:'flowchart',
+                        component: () => import('@/views/scheduling/components/FlowChart.vue'),
+                    },
+                    {
+                        path:'operator',
+                        name:'operator',
+                        component: () => import('@/views/scheduling/components/Operator.vue'),
+                    }
+                ]
             }
         ]
     }

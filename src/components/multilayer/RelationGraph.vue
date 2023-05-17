@@ -81,13 +81,6 @@ onMounted(async () => {
             }
         ],
 
-        title: {
-            // text: '多重产业链网络图',
-            // subtext: '这是一个副标题',
-            top: 'bottom',
-            left: 'right'
-        },
-
         tooltip: {
             show: true,
             trigger: 'item',

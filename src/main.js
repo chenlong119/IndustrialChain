@@ -8,6 +8,7 @@ import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import DataVVue3 from '@kjgl77/datav-vue3'
 import router from "@/router";
+import {createPinia} from "pinia";
 import '@/assets/icon/iconfont.css'
 import axios from "axios";
 import * as echarts from 'echarts';
@@ -22,6 +23,6 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 app.use(router)
 app.use(DataVVue3)
-
+app.use(createPinia())
 app.use(ElementPlus, { locale: zhCn })
 app.mount('#app')

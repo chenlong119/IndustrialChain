@@ -13,176 +13,105 @@ const task = reactive({
 //编写19个任务
 const tasklist = reactive([
     {
-        'name': '任务1',
+        'name': '电动汽车生产',
         'amount': 100,
         'type': '生产任务',
         'priority': '高',
         'deadline': '2021-07-01',
         'duration': 10,
-        'state': '已分配'
+        'state': '已分配',
+        'number': 1
     },
     {
-        'name': '任务2',
+        'name': '汽车锂电池生产',
         'amount': 200,
         'type': '生产任务',
         'priority': '中',
         'deadline': '2021-07-02',
         'duration': 20,
-        'state': '已分配'
+        'state': '已分配',
+        'number': 2
     },
     {
-        'name': '任务3',
+        'name': '销售电动汽车',
         'amount': 300,
-        'type': '生产任务',
+        'type': '销售任务',
         'priority': '低',
         'deadline': '2021-07-03',
         'duration': 30,
-        'state': '未分配'
+        'state': '未分配',
+        'number': 3
     },
     {
-        'name': '任务4',
+        'name': '汽车发动机生产',
         'amount': 400,
         'type': '生产任务',
         'priority': '高',
         'deadline': '2021-07-04',
         'duration': 40,
-        'state': '未分配'
+        'state': '未分配',
+        'number': 4
     },
     {
-        'name': '任务5',
+        'name': '购买汽车轮胎',
         'amount': 500,
-        'type': '生产任务',
+        'type': '采购任务',
         'priority': '中',
         'deadline': '2021-07-05',
         'duration': 50,
-        'state': '已分配'
+        'state': '已分配',
+        'number': 5
     },
     {
-        'name': '任务6',
+        'name': '购买汽车玻璃',
         'amount': 600,
-        'type': '生产任务',
+        'type': '采购任务',
         'priority': '低',
         'deadline': '2021-07-06',
         'duration': 60,
-        'state': '未分配'
+        'state': '未分配',
+        'number': 6
     },
     {
-        'name': '任务7',
+        'name': '生产汽车玻璃',
         'amount': 700,
-        'type': '销售任务',
+        'type': '生产任务',
         'priority': '高',
         'deadline': '2021-07-07',
         'duration': 70,
-        'state': '未分配'
+        'state': '未分配',
+        'number': 7
     },
     {
-        'name': '任务8',
+        'name': '生产汽车轮胎',
         'amount': 800,
         'type': '生产任务',
         'priority': '中',
         'deadline': '2021-07-08',
         'duration': 80,
-        'state': '未分配'
+        'state': '未分配',
+        'number': 8
     },
     {
-        'name': '任务9',
+        'name': '销售汽车玻璃',
         'amount': 900,
         'type': '销售任务',
         'priority': '低',
         'deadline': '2021-07-09',
         'duration': 90,
-        'state': '未分配'
+        'state': '未分配',
+        'number': 9
     },
     {
-        'name': '任务10',
+        'name': '生产汽车车身',
         'amount': 1000,
         'type': '生产任务',
         'priority': '高',
         'deadline': '2021-07-10',
         'duration': 100,
-        'state': '未分配'
+        'state': '未分配',
+        'number': 10
     },
-    {
-        'name': '任务11',
-        'amount': 1100,
-        'type': '采购任务',
-        'priority': '中',
-        'deadline': '2021-07-11',
-        'duration': 110,
-        'state': '未分配'
-    },
-    {
-        'name': '任务12',
-        'amount': 1200,
-        'type': '采购任务',
-        'priority': '低',
-        'deadline': '2021-07-12',
-        'duration': 120,
-        'state': '未分配'
-    },
-    {
-        'name': '任务13',
-        'amount': 1300,
-        'type': '生产任务',
-        'priority': '高',
-        'deadline': '2021-07-13',
-        'duration': 130,
-        'state': '已分配'
-    },
-    {
-        'name': '任务14',
-        'amount': 1400,
-        'type': '采购任务',
-        'priority': '中',
-        'deadline': '2021-07-14',
-        'duration': 140,
-        'state': '已分配'
-    },
-    {
-        'name': '任务15',
-        'amount': 1500,
-        'type': '生产任务',
-        'priority': '低',
-        'deadline': '2021-07-15',
-        'duration': 150,
-        'state': '未分配'
-    },
-    {
-        'name': '任务16',
-        'amount': 1600,
-        'type': '生产任务',
-        'priority': '高',
-        'deadline': '2021-07-16',
-        'duration': 160,
-        'state': '已分配'
-    },
-    {
-        'name': '任务17',
-        'amount': 1700,
-        'type': '生产任务',
-        'priority': '中',
-        'deadline': '2021-07-17',
-        'duration': 170,
-        'state': '未分配'
-    },
-    {
-        'name': '任务18',
-        'amount': 1800,
-        'type': '生产任务',
-        'priority': '低',
-        'deadline': '2021-07-18',
-        'duration': 180,
-        'state': '已分配'
-    },
-    {
-        'name': '任务19',
-        'amount': 1900,
-        'type': '生产任务',
-        'priority': '高',
-        'deadline': '2021-07-19',
-        'duration': 190,
-        'state': '未分配'
-    }
 ]);
 //分页展示，每页展示8个任务
 const pageSize = 8
@@ -266,6 +195,7 @@ const showAllocation=()=>{
         </div>
         <el-table :data="currentTaskList" style="width: 100%">
             <el-table-column prop="name" label="任务名称"></el-table-column>
+            <el-table-column prop="number" label="任务编号"></el-table-column>
             <el-table-column prop="amount" label="任务金额"></el-table-column>
             <el-table-column prop="type" label="任务类型"></el-table-column>
             <el-table-column prop="priority" label="任务优先级"></el-table-column>
